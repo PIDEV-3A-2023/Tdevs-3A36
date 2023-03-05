@@ -1,0 +1,36 @@
+{% extends './base_agent.html.twig' %}
+
+
+{% block body %}
+    <section class="account-wrap ptb-100">
+        <div class="container">
+            <div class="section-title style1 text-center mb-40">
+                <span>Ajouter des Services</span>
+                <h2>Abonnement</h2>
+            </div>
+
+            <center><div class="account-form">
+
+                <div class="row-cols-4">
+                    {{form_start(form)}}
+
+                    {{form_label(form.nom,'nom : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.nom,{'attr':{'class':'form-control'}})}}
+                    {{form_label(form.prix,'prix : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.prix,{'attr':{'class':'form-control'}})}}
+                   
+
+                    <div>
+                        <button  type="submit" class="btn style1 w-100 d-block">Save</button>
+
+                    </div>
+
+                    {{form_end(form)}}
+                </div>
+            </div></center>
+            </div>
+
+
+    </section>
+
+{% endblock %}

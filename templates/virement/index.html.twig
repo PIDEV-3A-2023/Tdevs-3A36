@@ -1,0 +1,70 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}Virements{% endblock %}
+
+{% block body %}
+
+    <section class="content">
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+    <h1></h1>
+    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex searchh" method="post" action="{{ path('searchh') }}">
+                        <input type="text" name = "searchh"  class="form-control" placeholder="Search rib">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><input class="btn btn-success" type="submit"  value="search"></li>
+                        </ol>
+                    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Montant</th>
+                <th>Date_virement</th>
+                <th>Titre</th>
+                <th>Prenom_benef</th>
+                <th>Rib_benef</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for virement in virements %}
+            <tr>
+               
+                <td>{{ virement.montant }}</td>
+                <td>{{ virement.dateVirement ? virement.dateVirement|date('Y-m-d') : '' }}</td>
+                <td>{{ virement.titre }}</td>
+                <td>{{ virement.prenomBenef }}</td>
+                <td>{{ virement.ribBenef }}</td>
+                <td>
+                    <button >
+                        <a href="{{ path('app_virement_edit', {'id_virement': virement.idVirement}) }}""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                            </svg></a>
+                    </button >
+
+                    <a href="{{ path('app_virement_show', {'id_virement': virement.idVirement}) }}">show</a>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn style1" href="{{ path('app_virement_new') }}">Create new</a>
+<br>
+<br>
+
+            </div><!-- /.container-fluid -->
+        </section>
+
+        {% endblock %}
+

@@ -1,0 +1,133 @@
+{% extends './base_back.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"> </h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ path('back') }}">Home</a></li>
+                        <li class="breadcrumb-item active">client table</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ nbUsers }}</h3>
+
+                    <p>Nombre utilisateur par 7 jours</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a hidden href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{ nbAgent }}</h3>
+
+                    <p>Nombre d'agent</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a hidden href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{ nbuserbanned }}</h3>
+
+                    <p>Nombre utilisateur banner</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a hidden href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>65</h3>
+
+                    <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a hidden href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <!-- Content Header (Page header) -->
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>is banned</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                {% if user.roles==["ROLE_USER"] %}
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.isbanned }}</td>
+                <td>
+                    <div>
+                        <a type="button" class="btn" style="background-color: darkgrey; color: white; padding: 5px 10px; margin-left: 0;" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+                    </div>
+                    <div>
+                        <a type="button" class="btn" style="background-color: red; color: white; padding: 5px 10px; margin-right: 0;" href="{{ path('ban_user', {'id': user.id}) }}">ban/deban</a>
+                    </div>
+                </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination">
+        {% if page > 1 %}
+            <a type="button" class="btn" style="background-color: #00008B; color: white; margin-left: 10px; padding: 8px;" href="{{ path('app_user_index', { 'page': page - 1 }) }}">Previous</a>
+        {% endif %}
+        {% if users|length >= perPage %}
+            <a type="button" class="btn" style="background-color: #00008B; color: white; margin-left: 950px; padding: 8px;" href="{{ path('app_user_index', { 'page': page + 1 }) }}">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

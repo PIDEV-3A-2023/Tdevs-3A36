@@ -1,0 +1,24 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}Select User{% endblock %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Select an Account</h1>
+
+	{{ form_start(form) }}
+	{{ form_row(form.account) }}
+	{{ form_row(form.submit) }}
+	{{ form_end(form) }}
+	<br>
+	<br>
+	<br>
+	<br>
+{% endblock %}

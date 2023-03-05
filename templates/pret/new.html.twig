@@ -1,0 +1,341 @@
+{% extends './base_front.html.twig' %}
+
+{% block body %}
+
+	<div class="page-wrapper">
+
+
+		<div class="content-wrapper">
+			<div class="breadcrumb-wrap bg-spring">
+				<img src="{{asset('assets/img/breadcrumb/br-shape-1.png')}}" alt="Image" class="br-shape-one xs-none"/>
+				<img src="{{asset('assets/img/breadcrumb/br-shape-2.png')}}" alt="Image" class="br-shape-two xs-none"/>
+				<img src="{{asset('assets/img/breadcrumb/br-shape-3.png')}}" alt="Image" class="br-shape-three moveHorizontal sm-none"/>
+				<img src="{{asset('assets/img/breadcrumb/br-shape-4.png')}}" alt="Image" class="br-shape-four moveVertical sm-none"/>
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-7 col-md-8 col-sm-8">
+							<div class="breadcrumb-title">
+								<h2>Formulaire de Demande de Prêt</h2>
+
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-4 col-sm-4 xs-none">
+							<div class="breadcrumb-img">
+								<img src="{{asset('assets/img/breadcrumb/br-shape-5.png')}}" alt="Image" class="br-shape-five animationFramesTwo"/>
+								<img src="{{asset('assets/img/breadcrumb/br-shape-6.png')}}" alt="Image" class="br-shape-six bounce"/>
+								<img src="{{asset('assets/img/breadcrumb/breadcrumb-3.png')}}" alt="Image"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<section class="account-wrap ptb-100">
+
+				<div class="container">
+					<div class="account-form">
+
+						{{ form_start(form) }}
+
+						<div>
+
+
+							<div class="section-title style1 text-center mb-40">
+
+								<h2>Information sur le Prêt
+								</h2>
+							</div>
+							<div
+								class="row">
+
+								{# <div class="col-md-612">
+																																																																																																																																																																																																																																																																																									<div class="form-group">
+																																																																																																																																																																																																																																																																																										<label for="city">Montant du Prêt Désiré</label>
+																																																																																																																																																																																																																																																																																										{{ form_widget(form.montant, {'attr': {'class': 'form-control', 'placeholder': 'en DT'}}) }}
+																																																																																																																																																																																																																																																																																
+																																																																																																																																																																																																																																																																																										{{ form_errors(form.montant) }}
+																																																																																																																																																																																																																																																																																									</div>
+																																																																																																																																																																																																																																																																																								</div> #}
+								<div class="col-md-612">
+									<div class="form-group">
+										<label for="montant">Montant du Prêt Désiré</label>
+
+										{{ form_widget(form.montant, {'attr': { 'placeholder': 'en DT', 'onchange':'calculMensualite()'}}) }}
+
+										{{ form_errors(form.montant) }}
+
+									</div>
+
+									<div class="col-md-612">
+										<div class="form-group">
+											<label for="duree">Durée du prêt</label>
+											{# 	<input type="number" id="duree" name="duree" value="" onchange="calculateMensualite()"> #}
+											{{ form_widget(form.duree, {'attr': { 'placeholder': 'en mois',  'onchange':'calculMensualite()'}})}}
+											{{ form_errors(form.duree) }}
+										</div>
+									</div>
+
+									<div class="col-md-612">
+										<div class="form-group">
+											<label for="taux">Taux d'intérêt souhaité</label>
+											{# 
+																																																																																																														 #}
+											{{ form_widget(form.Taux, {'attr': { 'placeholder': 'en %',  'onchange':'calculMensualite()'}}) }}
+											{# 	<input type="number" id="taux" name="taux" value="" onchange="calculateMensualite()"> #}
+											{# <input type="number" id="taux" value="" onchange="calculMensualite()"> #}
+										{{ form_errors(form.Taux) }}
+									</div>
+									</div>
+										<div class="col-md-612"> <div class="form-group">
+											<label for="mensualite">Votre mensualité maximale sera de</label>
+											{# 	<input type="number" id="mensualite" name="mensualite" value=""> #}
+											<input type="number" step="any" id="mensualite" value="" placeholder="/mois">
+
+										</div>
+									</div>
+									<div class="col-md-612">
+										<div class="form-group">
+											<label for="state">Raison du prêt</label>
+											{{ form_widget(form.raison) }}
+											{{ form_errors(form.raison) }}
+										</div>
+									</div>
+
+
+								</div>
+
+
+								<div class="section-title style1 text-center mb-40">
+
+									<h2>Emploi & Finance
+									</h2>
+								</div>
+								<div class="row">
+
+									<div class="col-md-612">
+										<div class="form-group">
+											<label for="city">Poste ou Titre</label>
+											{{ form_widget(form.poste, {'attr': {'placeholder': 'Ex: Enseignant'}}) }}
+
+										</div>
+									</div>
+									<div class="col-md-612">
+										<div class="form-group">
+											<label for="dob">Date de Début du Travail</label>
+											{{ form_widget(form.debut_travail) }}
+											{{ form_errors(form.debut_travail) }}
+										</div>
+
+									</div>
+									<div class="col-md-612">
+										<div class="form-group">
+											<label for="city">Revenu Annuel</label>
+											{{ form_widget(form.revenu, {'attr': {'placeholder': 'en DT'}}) }}
+											{{ form_errors(form.revenu) }}
+										</div>
+
+
+									</div>
+
+
+									<br/>
+
+								</div>
+							</div>
+
+
+							<button type="submit" class="btn style1">Envoyer</button>
+
+							{{ form_end(form) }}
+
+
+						</div>
+					</div>
+
+
+				</section>
+			</div>
+
+
+		</div>
+	</div>
+
+	<script src="{{asset('assets/js/calcul_mensualite.js') }}"></script>
+
+{% endblock %}
+{% block javascripts %}
+
+	<a href="javascript:void(0)" class="back-to-top bounce">
+		<i class="ri-arrow-up-s-line"></i>
+	</a>
+
+	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+	<script src="{{asset('assets/js/form-validator.min.js')}}"></script>
+	<script src="{{asset('assets/js/contact-form-script.js')}}"></script>
+	<script src="{{asset('assets/js/aos.js')}}"></script>
+	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('assets/js/odometer.min.js')}}"></script>
+	<script src="{{asset('assets/js/fancybox.js')}}"></script>
+	<script src="{{asset('assets/js/jquery.appear.js')}}"></script>
+	<script src="{{asset('assets/js/tweenmax.min.js')}}"></script>
+	<script src="{{asset('assets/js/main.js')}}"></script>
+
+{% endblock %}
+{% block footer %}
+	<div class="footer-wrap bg-rock">
+		<div class="container">
+			<img src="{{asset('assets/img/footer-shape-1.png')}}" alt="Image" class="footer-shape-one"/>
+			<img src="{{asset('assets/img/footer-shape-2.png')}}" alt="Image" class="footer-shape-two"/>
+			<div class="row pt-100 pb-75">
+				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+					<div class="footer-widget">
+						<a href="index.html" class="footer-logo">
+							<img src="{{asset('assets/img/logo-white.png')}}" alt="Image"/>
+						</a>
+						<p class="comp-desc">
+							On the other hand, we denounce whteous indig nation and
+																																																																																																																																																																																																																																																																																																																										                                dislike men wh beguiled moraized er hand consec teturus adipis
+																																																																																																																																																																																																																																																																																																																										                                iscing elit eiusmod tempordunt labore dolore magna aliqua
+																																																																																																																																																																																																																																																																																																																										                                consector tetur adip iscing.
+						</p>
+						<div class="social-link">
+							<ul class="social-profile list-style style1">
+								<li>
+									<a target="_blank" href="https://facebook.com/">
+										<i class="ri-facebook-fill"></i>
+									</a>
+								</li>
+								<li>
+									<a target="_blank" href="https://twitter.com/">
+										<i class="ri-twitter-fill"></i>
+									</a>
+								</li>
+								<li>
+									<a target="_blank" href="https://linkedin.com/">
+										<i class="ri-linkedin-fill"></i>
+									</a>
+								</li>
+								<li>
+									<a target="_blank" href="https://instagram.com/">
+										<i class="ri-pinterest-fill"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+					<div class="footer-widget">
+						<h3 class="footer-widget-title">Our Company</h3>
+						<ul class="footer-menu list-style">
+							<li>
+								<a href="about.html">
+									<i class="flaticon-next"></i>
+									Company &amp; Team
+								</a>
+							</li>
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Our Services
+								</a>
+							</li>
+							<li>
+								<a href="team.html">
+									<i class="flaticon-next"></i>
+									News &amp; Blog
+								</a>
+							</li>
+							<li>
+								<a href="pricing.html">
+									<i class="flaticon-next"></i>
+									Pricing Plan
+								</a>
+							</li>
+							<li>
+								<a href="contact.html">
+									<i class="flaticon-next"></i>
+									Contact Us
+								</a>
+							</li>
+							<li>
+								<a href="privacy-policy.html">
+									<i class="flaticon-next"></i>
+									Privacy Policy
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+					<div class="footer-widget">
+						<h3 class="footer-widget-title">Products</h3>
+						<ul class="footer-menu list-style">
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Online Payment
+								</a>
+							</li>
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Deposit Skim
+								</a>
+							</li>
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Online Shopping
+								</a>
+							</li>
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Master Card
+								</a>
+							</li>
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Receive Money
+								</a>
+							</li>
+							<li>
+								<a href="service-one.html">
+									<i class="flaticon-next"></i>
+									Affiliate Program
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+					<div class="footer-widget">
+						<h3 class="footer-widget-title">Subscribe</h3>
+						<p class="newsletter-text">
+							Tablished fact that a reader will be distrated by the readable
+																																																																																																																																																																																																																																																																																																																										                                content
+						</p>
+						<form action="#" class="newsletter-form">
+							<input type="email" placeholder="Your Email"/>
+							<button type="button">Subscribe</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright-text">
+			<p>
+				<i class="ri-copyright-line"></i>
+				<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+				<script>
+					document.write(new Date().getFullYear());
+				</script>
+				Raxa. All Rights Reserved By
+				<a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

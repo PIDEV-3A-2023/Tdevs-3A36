@@ -1,0 +1,41 @@
+{% extends './base_front.html.twig' %}
+
+{% block body %}
+</br>
+</br>
+</br>
+
+<div class="col-xl-12">  
+    <div class="card user-data-table">  
+    <h1> Historique  </h1>
+    
+    <table class="table ">
+        <thead>
+            <tr>
+                
+                <th>Montant</th>
+                <th>Date de debut</th>
+                <th>Date de fin</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for budget in budgets %}
+            <tr>
+                
+                <td>{{ budget.montant }}</td>
+                <td>{{ budget.datedebut ? budget.datedebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ budget.datefin ? budget.datefin|date('Y-m-d H:i:s') : '' }}</td>
+            
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</div>  
+{% endblock %}

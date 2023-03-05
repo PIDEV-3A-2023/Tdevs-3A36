@@ -1,0 +1,115 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}New Rendezvous{% endblock %}
+
+{% block body %}
+    <h1>Create new Rendezvous</h1>
+<section class="account-wrap ptb-100">
+
+		<div class="container">
+			<div class="account-form">
+        
+				{{ form_start(form) }}
+
+				<div>
+					<div class="section-title style1 text-center mb-40">
+						<h1>Voulez-vous arrivez sur place?</h1>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-612">
+							<div class="form-group">
+
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="fname">Nom</label>
+											{{ form_widget(form.nom,{'attr':{'class':'form-control','placeholder':"Entrez votre Nom"}}) }}
+											{{ form_errors(form.nom) }}
+										</div>
+									</div>
+                                    <div class="col-md-6">
+										<div class="form-group">
+											<label for="fname">Prénom</label>
+											{{ form_widget(form.prenom,{'attr':{'class':'form-control','placeholder':"Entrez votre Prénom"}}) }}
+											{{ form_errors(form.prenom) }}
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="dob">Date</label>
+											{{ form_widget(form.date) }}
+											{{ form_errors(form.date) }}
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="form-outline">
+											<label for="description">Problème</label>
+											{{ form_widget(form.probleme,{'attr':{'class':'form-label','rows':'12','placeholder':"Description" }}) }}
+											{{ form_errors(form.probleme) }}
+										</div>
+									</div>
+
+									<button type="submit" class="btn style1 " >Envoyer</button>
+
+									
+
+								</div>
+
+
+							</div>
+						</div>
+
+					</div>
+					</div>	
+					</div>
+				</div>
+
+
+
+				{{ form_end(form) }}
+			</div>
+		</div>
+		<div id="map"></div>
+		<script>
+          function initMap(): void {
+  const myLatLng = { lat: -25.363, lng: 131.044 };
+
+  const map = new google.maps.Map(
+    document.getElementById("map") as HTMLElement,
+    {
+      zoom: 4,
+      center: myLatLng,
+    }
+  );
+
+  new google.maps.Marker({
+    position: myLatLng,
+    map,
+    title: "Hello World!",
+  });
+}
+
+declare global {
+  interface Window {
+    initMap: () => void;
+  }
+}
+window.initMap = initMap;
+   </script>
+    
+
+
+	</section>
+{% endblock %}
+{% block javascripts %}
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+
+
+{% endblock %}

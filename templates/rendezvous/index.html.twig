@@ -1,0 +1,58 @@
+{% extends 'base_agent.html.twig' %}
+
+{% block title %}Rendezvous index{% endblock %}
+
+{% block body %}
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div class="content-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date</th>
+                <th>Probleme</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rendezvou in rendezvouses %}
+            <tr>
+                
+                <td>{{ rendezvou.nom }}</td>
+                <td>{{ rendezvou.prenom }}</td>
+                <td>{{ rendezvou.date  ? rendezvou.date|date('Y-m-d') : ''  }}</td>
+                <td>{{ rendezvou.probleme }}</td>
+                <td>
+                    
+                    <form method="post"  class="btn btn-warning" action="{{ path('app_rendezvous_edit', {'id': rendezvou.id}) }}">
+                    <button class="btn btn-warning">Edit</button>
+                    </form>
+
+                    <form method="post" action="{{ path('app_rendezvous_delete', {'id': rendezvou.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ rendezvou.id) }}">
+    <button class="btn btn-danger">Delete</button>
+</form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <a href="{{ path('app_rendezvous_new') }}">Create new</a>
+{% endblock %}
+
+

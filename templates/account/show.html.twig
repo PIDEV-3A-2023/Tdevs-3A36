@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<title>Account</title>
+
+{% block body %}
+    <h1>Account</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ account.id }}</td>
+            </tr>
+            <tr>
+                <th>NomComplet</th>
+                <td>{{ account.NomComplet }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ account.NumTel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ account.Email }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ account.Sexe }}</td>
+            </tr>
+            <tr>
+                <th>DateNaiss</th>
+                <td>{{ account.DateNaiss ? account.DateNaiss|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ account.Adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ account.Ville }}</td>
+            </tr>
+            <tr>	
+            <th>Brochure</th>
+			<td>{{ account.brochureFilename }}</td>
+		</tr>	
+    </table>
+
+    <a href="{{ path('app_account_index') }}">Afficher La Liste Des Comptes</a>
+
+    {{ include('account/_delete_form.html.twig') }}
+{% endblock %}

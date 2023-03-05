@@ -1,0 +1,63 @@
+{% extends './base_front.html.twig' %}
+
+
+{% block body %}
+	<div class="page-wrapper">
+		<div class="content-wrapper">
+			{% if prets is empty %}
+				<p>Aucun pret.</p>
+			{% else %}
+				<div class="card-body p-0" style="display: block;">
+					<table class="table table-striped projects">
+						<thead>
+
+							<th style="width: 10%">
+								Montant (DT)
+							</th>
+							<th style="width: 10%">
+								Durée (mois)
+							</th>
+							<th style="width: 10%">
+								<a href="{{ path('app_pret_list', {'page': 1, 'sort': 'Taux', 'direction': 'asc'}) }}">Taux</a>
+							</th>
+							<th>Poste</th>
+
+							<th>Debut_travail</th>
+							<th>Revenu</th>
+
+
+						</thead>
+					</tr>
+					<tbody>
+
+						{% for pret in prets %}
+							<tr>
+
+								<td>
+									{{ pret.montant }}
+								</td>
+								<td>
+									{{ pret.duree }}
+								</td>
+								<td class="project_progress">
+									<div class="progress progress-sm">
+										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ pret.Taux }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ pret.Taux }}%"></div>
+									</div>
+									<small>
+										{{ pret.Taux }}%
+									</small>
+								</td>
+
+								<td>{{ pret.poste }}</td>
+								<td>{{ pret.debutTravail ? pret.debutTravail|date('Y-m-d') : '' }}</td>
+								<td>{{ pret.revenu }}</td>
+							</tr>
+
+						{% endfor %}
+					</tbody>
+					</table>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

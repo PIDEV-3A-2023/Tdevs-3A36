@@ -1,0 +1,65 @@
+{% extends 'base_agent.html.twig' %}
+
+{% block title %}Listes des Comptes
+{% endblock %}
+
+{% block body %}
+
+	<h1>Account index</h1>
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1 class="m-0"></h1>
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item">
+								<a href="">Home</a>
+							</li>
+							<li class="breadcrumb-item active">service table</li>
+						</ol>
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<table class="table table-striped table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th>Nom</th>
+					
+                    <th>Prix</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for abon in abonnement %}
+					<tr>
+						<td>{{ abon.nom }}</td>
+						<td>{{ abon.prix }}</td>
+						<td>
+								<a href="{{ path('deleteAbon', {'id':abon.id})}}" class="btn btn-danger">Supprimer</a>
+						</td>
+
+
+
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="2">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+        	
+	</div>
+
+	<a href="{{ path('addService') }}">Create new</a>
+{% endblock %}

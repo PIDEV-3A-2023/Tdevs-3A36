@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<title>Depenses</title>
+
+{% block body %}
+    <h1>Depenses</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id_depense</th>
+                <td>{{ depense.idDepense }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ depense.title }}</td>
+            </tr>
+            <tr>
+                <th>Prenom_destinataire</th>
+                <td>{{ depense.prenomDestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Rib_destinataire</th>
+                <td>{{ depense.ribDestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ depense.montant }}</td>
+            </tr>
+            <tr>
+                <th>Backgroundcolor</th>
+                <td>{{ depense.backgroundcolor }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ depense.datedebut ? depense.datedebut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Categorie_depense</th>
+                <td>{{ depense.categorieDepense }}</td>
+            </tr>
+            <tr>
+                <th>Type_depense</th>
+                <td>{{ depense.typeDepense }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_back_depenses_index') }}">back to list</a>
+
+    <a href="{{ path('app_back_depenses_edit', {'id_depense': depense.id_depense}) }}">edit</a>
+
+    {{ include('back_depenses/_delete_form.html.twig') }}
+{% endblock %}

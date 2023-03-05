@@ -1,0 +1,57 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}
+	Afficher
+{% endblock %}
+
+{% block body %}
+	<h1>Pret
+		{{ pret.id }}</h1>
+
+	<table class="table">
+		<tbody>
+
+			<tr>
+				<th>Montant</th>
+				<td>{{ pret.montant }}</td>
+			</tr>
+			<tr>
+				<th>Raison</th>
+				<td>{{ pret.raison }}</td>
+			</tr>
+			<tr>
+				<th>Poste</th>
+				<td>{{ pret.poste }}</td>
+			</tr>
+			<tr>
+				<th>Debut_travail</th>
+				<td>{{ pret.debutTravail ? pret.debutTravail|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Revenu</th>
+				<td>{{ pret.revenu }}</td>
+			</tr>
+
+			<tr>
+				<th>Duree</th>
+				<td>{{ pret.duree ? pret.duree|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Taux</th>
+				<td>{{ pret.Taux }}</td>
+			</tr>
+			<tr>
+				<th>Etat</th>
+				<td>{{ pret.etat.etat}}</td>
+			</tr>
+			<tr>
+				<th>Remarque</th>
+				<td>{{ pret.etat.remarque}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_pret_list') }}">Retour à la liste des prets</a>
+
+
+{% endblock %}

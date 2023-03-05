@@ -1,0 +1,77 @@
+{% extends './base_front.html.twig' %}
+{% block body %}
+
+	<section class="account-wrap ptb-100">
+
+		<div class="container">
+			<div class="account-form">
+        
+				{{ form_start(form) }}
+
+				<div>
+					<div class="section-title style1 text-center mb-40">
+						<span>Virement</span>
+						<h2>
+						</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-612">
+							<div class="form-group">
+
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="montant">Montant</label>
+											{{ form_widget(form.montant,{'attr':{'class':'form-control','placeholder':"0000000000"}})}}
+											{{ form_errors(form.montant) }}
+										</div>
+									</div>
+                                    <div class="col-md-6">
+									<div class="form-group">
+											<label for="date_virement">Date de virement</label>
+											{{ form_widget(form.date_virement,{'attr':{'class':'form-control','placeholder':""}})}}
+											{{ form_errors(form.date_virement) }}
+										</div>	
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="titre">Titre du virement </label>
+											{{ form_widget(form.titre,{'attr':{'class':'form-control','placeholder':"titre"}})}}
+											{{ form_errors(form.titre) }}
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="prenom_benef">Prenom du beneficiaire</label>
+											{{ form_widget(form.prenom_benef,{'attr':{'class':'form-control','placeholder':"prenom_benef"}})}}
+											{{ form_errors(form.prenom_benef) }}
+										</div>
+									</div>
+                                    <div class="col-md-6">
+										<div class="form-group">
+											<label for="rib_benef">Rib du beneficiaire</label>
+											{{ form_widget(form.rib_benef,{'attr':{'class':'form-control','placeholder':"rib_benef"}})}}
+											{{ form_errors(form.rib_benef) }}
+										</div>
+									</div>
+						</div>
+
+
+						<br/>
+
+					</div>
+				</div>
+
+				
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  
+				{{ form_end(form) }}
+			</div>
+		</div>
+
+
+	</section>
+
+
+{% endblock %}

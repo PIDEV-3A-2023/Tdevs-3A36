@@ -1,0 +1,76 @@
+
+    
+
+<div class="content-wrapper">
+
+ 
+
+ 
+    
+    
+    <div class="container">
+        <a href="{{ path('app_back_budget_index') }}">back to list</a></div>
+    <div class="section-title style1 text-center mb-40">
+   
+    <h2>Formulaire De Budget</h2>
+    </div>
+    <div class="account-form">
+    {{ form_start(form)}}
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    
+    <label for="fname">Montant</label>
+    
+    {{ form_widget(form.montant) }}
+    {{ form_errors(form.montant) }}
+    
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="phone">date de debut</label>
+    {{ form_widget(form.datedebut) }}
+    {{ form_errors(form.datedebut) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="email">date de fin</label>
+    {{ form_widget(form.datefin) }}
+    {{ form_errors(form.datefin) }}
+    </div>
+    </div>
+    
+   
+   
+    <button type="submit" class="btn style1 w-100 d-block" data-toggle="modal" data-target="#myModal"> save</button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    {% if form is defined and form.vars.submitted  %}
+                        <p>This text will be displayed in the modal if the form has not been submitted yet.</p>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    {{ form_end(form) }}
+</div>
+    </div>
+    </section>
+    
+    
+</div>
+
+

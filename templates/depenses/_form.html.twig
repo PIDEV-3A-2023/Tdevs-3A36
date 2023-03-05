@@ -1,0 +1,95 @@
+
+    
+
+<div class="content-wrapper">
+
+ 
+
+  
+    <section class="account-wrap ptb-100">
+    <div class="container">
+    <div class="section-title style1 text-center mb-40">
+    <a href="{{ path('app_depenses_index') }}">back to list</a>
+    <h2>Formulaire De Depense</h2>
+    </div>
+    <div class="account-form">
+    {{ form_start(form)}}
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    
+    <label for="fname">Titre</label>
+    
+    {{ form_widget(form.title) }}
+    {{ form_errors(form.title) }}
+    
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="phone">Prenom Destinataire</label>
+    {{ form_widget(form.prenom_destinataire) }}
+    {{ form_errors(form.prenom_destinataire) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="email">Rib Destinataire</label>
+    {{ form_widget(form.rib_destinataire) }}
+    {{ form_errors(form.rib_destinataire) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="email">Montant</label>
+    {{ form_widget(form.montant) }}
+    {{ form_errors(form.montant) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="dob">Date Debut</label>
+    {{ form_widget(form.datedebut) }}
+    {{ form_errors(form.datedebut) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="gender">type de depense</label>
+    {{ form_widget(form.type_depense) }}
+    {{ form_errors(form.type_depense) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label for="pname">Backgroundcolor</label>
+    {{ form_widget(form.backgroundcolor) }}
+    {{ form_errors(form.backgroundcolor) }}
+    </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+        <label for="phone">Categorie Depense</label>
+        {{ form_widget(form.categorie_depense) }}
+        {{ form_errors(form.categorie_depense) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group" type="hidden">
+      <input type="hidden"  >
+         {{ form_widget(form.idbudget) }}
+        </input>
+        </div>
+    </div>
+    <div class="col-md-12">
+    <button type="submit" class="btn style1 w-100 d-block"> save</button>
+    </div>
+    </div>
+
+        
+    {{ form_end(form) }}
+</div>
+    </div>
+    </section>
+    
+    </div>

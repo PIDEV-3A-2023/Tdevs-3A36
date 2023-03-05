@@ -1,0 +1,39 @@
+<div class="col-lg-12 grid-margin stretch-card-dark">
+                    <div class="card-dark">
+                        <div class="card-body-dark">
+                            <div class="table-responsive-dark">
+                                <table class="table table-striped-dark ">
+                                    <thead>
+                                    <tr>
+                                       
+                                        <th>Montant</th>
+                                        <th>Date_virement</th>
+                                        <th>Titre</th>
+                                        <th>Prenom_benef</th>
+                                        <th>Rib_benef</th> 
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                 {% for virement in virements %}
+                                    <tr>
+                                      
+                                           
+                                        
+                                        <td>{{ virement.montant }}</td>
+                                        <td>{{ virement.dateVirement ? virement.dateVirement|date('Y-m-d') : '' }}</td>
+                                        <td>{{ virement.titre }}</td>
+                                        <td>{{ virement.prenomBenef }}</td>
+                                        <td>{{ virement.ribBenef }}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>

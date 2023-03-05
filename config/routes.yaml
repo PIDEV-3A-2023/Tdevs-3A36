@@ -1,0 +1,11 @@
+#Hello:
+#    path: /teacher/{name}
+#    controller: App\Controller\TeacherController::showTeacher
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+{% extends './base_front.html.twig' %}
+
+{% block body %}
+    <h1>Create new Depenses</h1>
+    
+    
+    {{ include('depenses/_form.html.twig') }}
+    
+    <!-- Flashy depends on jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Load Flashy default JavaScript -->
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <!-- Include Flashy default partial -->
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+   
+{% endblock %}

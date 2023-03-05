@@ -1,0 +1,109 @@
+{% extends './base_front.html.twig' %}
+
+{% block body %}
+
+
+	<div class="page-wrapper">
+
+		
+
+
+		<div class="content-wrapper">
+
+			<div class="breadcrumb-wrap bg-spring">
+				<img src="{{asset('assets/img/breadcrumb/br-shape-1.png')}}" alt="Image" class="br-shape-one xs-none">
+				<img src="{{asset('assets/img/breadcrumb/br-shape-2.png')}}" alt="Image" class="br-shape-two xs-none">
+				<img src="{{asset('assets/img/breadcrumb/br-shape-3.png')}}" alt="Image" class="br-shape-three moveHorizontal sm-none">
+				<img src="{{asset('assets/img/breadcrumb/br-shape-4.png')}}" alt="Image" class="br-shape-four moveVertical sm-none">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-7 col-md-8 col-sm-8">
+							<div class="breadcrumb-title">
+								<h2>Crédits</h2>
+
+								<h4>Donnez vie à tous vos projets
+								</h4>
+
+								<a>Bien immobilier, voiture, travaux ou un simple achat à financer, BANK-IN vous propose de nombreuses solutions de crédit pour répondre à vos besoins. Profitez d'une gamme complète pour réaliser tous vos projets.</a>
+
+
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-4 col-sm-4 xs-none">
+							<div class="breadcrumb-img">
+								<img src="{{asset('assets/img/breadcrumb/br-shape-5.png')}}" alt="Image" class="br-shape-five animationFramesTwo">
+								<img src="{{asset('assets/img/breadcrumb/br-shape-6.png')}}" alt="Image" class="br-shape-six bounce">
+								<img src="{{asset('assets/img/breadcrumb/breadcrumb-2.png')}}" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<section class="service-wrap ptb-50">
+				<div class="container">
+					<div class="row justify-content-center">
+						{% for type, messages in app.session.flashbag.all() %}
+							{% for message in messages %}
+								<div class="alert alert-success alert-dismissible" role="alert">
+									Votre demande a été envoyée avec succès !
+								</div>
+							{% endfor %}
+						{% endfor %}
+						<div class="col-xl-8 col-lg-2 col-md-6">
+							<div class="service-card style4">
+								<div class="service-info">
+									<div class="service-title">
+										<span>
+											<i class="flaticon-mortarboard"></i>
+										</span>
+										<h3>
+
+											<a href="new/{{id}}">Demander un prêt</a>
+
+										</h3>
+									</div>
+									<p>Parlons de vos projets : un futur logement, un nouveau véhicule, des travaux... Concrétisez vos projets d'avenir.</p>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+			<section>
+				<div class="container">
+					<div class="row justify-content-center">
+
+						<div class=" col-md-6">
+							<div class="service-card style4">
+								<div class="service-info">
+									<div class="service-title">
+
+										<h3>
+											
+											<a class="row justify-content-center" href="{{ path('app_pret_show', {'id': account.id}) }}">Voir mes prets</a>
+										</h3>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
+	</div>
+
+
+{% endblock %}

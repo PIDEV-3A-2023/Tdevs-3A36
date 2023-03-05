@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+    <html lang="zxx">
+
+    <!-- Mirrored from templates.hibootstrap.com/raxa/default/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Jan 2023 12:28:10 GMT -->
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/remixicon.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/odometer.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/fancybox.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/dark-theme.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+        {% block stylesheets %}
+
+        {% endblock %}
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+    </head>
+
+    <body>
+
+
+    <div class="switch-theme-mode">
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+
+    <div class="page-wrapper">
+        {% block header %}
+        <header class="header-wrap style1">
+            <div class="header-top">
+                <button type="button" class="close-sidebar">
+                    <i class="ri-close-fill"></i>
+                </button>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="header-top-left">
+                                <ul class="contact-info list-style">
+                                    <li><i class="flaticon-call"></i> <a href="tel:02459271449">(+216) 22 951 633</a></li>
+                                    <li><i class="flaticon-email-1"></i> <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#3159545d5d5e71435049501f525e5c"><span class="__cf_email__" data-cfemail="fe969b929291be8c9f869fd09d9193">[email&#160;protected]</span></a></li>
+                                    <li><i class="flaticon-pin"></i><p>Ariana</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-bottom">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand" href="{{path('app_index')}}">
+                            <img class="logo-light" src="{{asset('assets/img/logo.png')}}" alt="logo">
+                        </a>
+                        <div class="collapse navbar-collapse main-menu-wrap" id="navbarSupportedContent">
+                            <div class="menu-close xl-none">
+                                <a href="javascript:void(0)"> <i class="ri-close-line"></i></a>
+                            </div>
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a href="{{ path('app_depenses_index' )}}" class="nav-link">budget</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="/FrontAbonnement" class="nav-link">Abonnements</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('app_account_new') }}" class="nav-link">Ouvrir compte</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('app_pret_account') }}" class="nav-link">Emprunter</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('app_virement_index') }}" class="nav-link">Virement</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('app_beneficiaire_index') }}" class="nav-link">Beneficiaire</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path('app_message_new') }}" class="nav-link">Contact Us</a>
+                                </li>
+                                <li class="nav-item xl-none">
+                                    <a href="{{ path('app_logout') }}" class="btn btn-info btn-sm">log out</a>
+                                </li>
+                            </ul>
+
+                            <div class="others-options  lg-none">
+                                {% if app.user %}
+                                <div>
+                                <style>.avatar {
+                                        vertical-align: middle;
+                                        width: 50px;
+                                        height: 50px;
+                                        border-radius: 50%;
+                                    }
+                                </style>
+
+                                    <a href="{{ path('profile') }}">
+                                        <img src="{{ asset('/uploads/'~app.user.image) }}" alt="Avatar" class="avatar">
+                                    </a>
+
+                                </div>
+                                <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a href="{{ path('app_logout') }}" class="nav-link">logout</a>
+                                </li>
+                                </ul>
+                            </div>
+                            </div>
+                        {% else %}
+                        <div class="others-options  lg-none">
+                            <div class="header-btn lg-none">
+                                <a href="{{ path('app_login') }}" class="btn style1">Login</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </nav>
+                    <div class="mobile-bar-wrap">
+                        <div class="mobile-sidebar">
+                            <i class="ri-menu-4-line"></i>
+                        </div>
+                        <button class="searchbtn xl-none" type="button">
+                            <i class="flaticon-search"></i>
+                        </button>
+                        <div class="mobile-menu xl-none">
+                            <a href="javascript:void(0)"><i class="ri-menu-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-area">
+                    <div class="container">
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="search" placeholder="Search Here" autofocus>
+                            </div>
+                        </form>
+                        <button type="button" class="close-searchbox">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        {% endblock %}
+
+        {% block body %}
+
+        {% endblock %}
+
+        {% block footer %}
+        <footer class="footer-wrap bg-stratos">
+            <img src="{{asset('assets/img/footer-shape-3.png')}}" alt="Image" class="footer-shape-three">
+            <div class="container">
+                <img src="{{asset('assets/img/footer-shape-1.png')}}" alt="Image" class="footer-shape-one">
+                <img src="{{asset('assets/img/footer-shape-2.png')}}" alt="Image" class="footer-shape-two">
+                <div class="row pt-100 pb-75">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer-widget">
+                            <a href="index.html" class="footer-logo">
+                                <img src="{{asset('assets/img/logo-white.png')}}" alt="Image">
+                            </a>
+                            <p class="comp-desc">
+                                On the other hand, we denounce whteous indig nation and dislike men wh beguiled moraized er hand consec teturus adipis iscing elit eiusmod tempordunt labore dolore magna aliqua consector tetur adip iscing.
+                            </p>
+                            <div class="social-link">
+                                <ul class="social-profile list-style style1">
+                                    <li>
+                                        <a target="_blank" href="https://facebook.com/">
+                                            <i class="ri-facebook-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://twitter.com/">
+                                            <i class="ri-twitter-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://linkedin.com/">
+                                            <i class="ri-linkedin-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://instagram.com/">
+                                            <i class="ri-pinterest-fill"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer-widget">
+                            <h3 class="footer-widget-title">Our Company</h3>
+                            <ul class="footer-menu list-style">
+                                <li>
+                                    <a href="about.html">
+                                        <i class="flaticon-next"></i>
+                                        Company &amp; Team
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Our Services
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="team.html">
+                                        <i class="flaticon-next"></i>
+                                        News &amp; Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pricing.html">
+                                        <i class="flaticon-next"></i>
+                                        Pricing Plan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        <i class="flaticon-next"></i>
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="privacy-policy.html">
+                                        <i class="flaticon-next"></i>
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget">
+                            <h3 class="footer-widget-title">Products</h3>
+                            <ul class="footer-menu list-style">
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Online Payment
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Deposit Skim
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Online Shopping
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Master Card
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Receive Money
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-one.html">
+                                        <i class="flaticon-next"></i>
+                                        Affiliate Program
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer-widget">
+                            <h3 class="footer-widget-title">Subscribe</h3>
+                            <p class="newsletter-text">Tablished fact that a reader will be distrated by the readable content</p>
+                            <form action="#" class="newsletter-form">
+                                <input type="email" placeholder="Your Email">
+                                <button type="button">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-text">
+                <p> <i class="ri-copyright-line"></i><script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear())</script> Raxa. All Rights Reserved By <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a></p>
+            </div>
+
+        </footer>
+        {% endblock %}
+
+    </div>
+
+    <a href="javascript:void(0)" class="back-to-top bounce"><i class="ri-arrow-up-s-line"></i></a>
+
+    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/js/form-validator.min.js')}}"></script>
+    <script src="{{asset('assets/js/contact-form-script.js')}}"></script>
+    <script src="{{asset('assets/js/aos.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/odometer.min.js')}}"></script>
+    <script src="{{asset('assets/js/fancybox.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.appear.js')}}"></script>
+    <script src="{{asset('assets/js/tweenmax.min.js')}}"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
+    {% block javascripts %}
+
+    {% endblock %}
+
+    </body>
+
+    <!-- Mirrored from templates.hibootstrap.com/raxa/default/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Jan 2023 12:28:32 GMT -->
+    </html>

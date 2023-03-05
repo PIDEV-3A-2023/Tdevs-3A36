@@ -1,0 +1,52 @@
+
+
+{% block stylesheets %}
+    <style>
+        #calendrier{
+            width: 70%;
+            height:90%;
+            margin: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.4/main.min.css" integrity="sha512-1P/SRFqI1do4eNtBsGIAqIZIlnmOQkaY7ESI2vkl+q+hl9HSXmdPqotN0McmeZVyR4AWV+NvkP6pKOiVdY/V5A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.4/main.min.js" 
+        integrity="sha512-XOEq47av5VoS9AeXnMf7KWh4MqU5qLlXavvjwOslpq56aBrulO2+vlc2/s0tO2JDnild+RlFzSEtA+4Ih/VYZA=="
+         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+         <button style="background-color: #4CAF50;font-size: 20px;border: 2px solid #4CAF50;" >
+         <a href="{{ path('app_depenses_index') }}"> Retoure </a>   </button >
+    <div id="calendrier">
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+<script>
+    window.onload = () => {
+        let calendarElt = document.querySelector("#calendrier")
+        let calendar = new FullCalendar.Calendar(calendarElt, {
+            
+            initialView: 'dayGridMonth',
+           
+            locale: 'fr',
+            timeZone: 'Europe/Paris',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'dayGridMonth,timeGridWeek'
+            },
+            events:{{data|raw}},
+            editable: true,
+            eventResizableFromStart: true
+            
+        })
+        
+        calendar.render()
+    }
+</script>
+
+{% endblock %}

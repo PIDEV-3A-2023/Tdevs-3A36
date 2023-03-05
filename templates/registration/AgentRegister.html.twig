@@ -1,0 +1,89 @@
+{% extends './base_back.html.twig' %}
+
+{% block title %}add agent{% endblock %}
+
+{% block body %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0"> </h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ path('back') }}">Home</a></li>
+                            <li class="breadcrumb-item active">add agent</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Add Agent</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            {{ form_start(form) }}
+            <div class="card-body">
+                <div class="mb-3">
+                    {{form_label(form.nom,'Nom : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.nom,{'attr':{'class':'form-control'}})}}
+                </div>
+
+                <div class="mb-3">
+                    {{form_label(form.prenom,'Prenom : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.prenom,{'attr':{'class':'form-control'}})}}
+                </div>
+
+                <div class="mb-3">
+                    {{form_label(form.telephone,'Telephone : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.telephone,{'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="mb-3">
+                    {{form_label(form.adresse,'Adresse : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.adresse,{'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="mb-3">
+                    {{form_label(form.gender,'Gender : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.gender,{'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="mb-3">
+                    {{form_label(form.age,'Age : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.age,{'attr':{'class':'form-control'}})}}
+                </div>
+
+                <div class="mb-3">
+                    {{form_label(form.image,'Image : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.image,{'attr':{'class':'form-control'}})}}
+                </div>
+
+                <div class="mb-3">
+                    {{form_label(form.email,'E-mail : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.email,{'attr':{'class':'form-control'}})}}
+                </div>
+                <div class="mb-3">
+                    {{form_label(form.plainPassword.first,'Password : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.plainPassword.first,{'attr':{'class':'form-control'}})}}
+                </div>
+
+                <div class="mb-3">
+                    {{form_label(form.plainPassword.second,'Confirm Password : ',{'attr':{'class':'form-label'}})}}
+                    {{form_widget(form.plainPassword.second,{'attr':{'class':'form-control'}})}}
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">ADD</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+        <!-- /.card -->
+    </div>
+{% endblock %}

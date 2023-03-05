@@ -1,0 +1,38 @@
+ <table class="table table-dark">
+        <thead>
+            <tr>
+               
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date</th>
+                <th>Description</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                
+                <td>{{ message.nom }}</td>
+                <td>{{ message.prenom }}</td>
+                <td>{{ message.date ? message.date|date('Y-m-d') : '' }}</td>
+                <td>{{ message.description }}</td>
+                <td>
+                    
+                    
+
+                    
+                    
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+            
+       
+    
+        {% endfor %}
+        </tbody>
+    </table>

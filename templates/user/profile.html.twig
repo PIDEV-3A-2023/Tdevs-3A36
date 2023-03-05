@@ -1,0 +1,90 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}profile{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/framework.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <body>
+    <div class="page d-flex">
+        <div class="content w-full">
+            <h1 class="p-relative">Profile</h1>
+            <a  type="button" class="btn" style="background-color: #00A9A4; margin-left: 1170px; padding: 8px;" href="{{ path('app_user_editpass', {'id': app.user.id}) }}" >Edit password</a>
+            <div class="profile-page m-20">
+                <!-- Start Overview -->
+                <div class="overview bg-white rad-10 d-flex align-center">
+                    <div class="avatar-box txt-c p-20">
+                        <img class="rad-half mb-10" src="{{ asset('/uploads/'~app.user.image) }}" alt="" />
+                        <h3 class="m-0">{{ app.user.prenom }} - {{ app.user.nom }}</h3>
+                        <p class="c-grey mt-10">Level 20</p>
+                        <div class="level rad-6 bg-eee p-relative">
+                            <span style="width: 70%"></span>
+                        </div>
+
+
+                    </div>
+                    <div class="info-box w-full txt-c-mobile">
+                        <!-- Start Information Row -->
+                        <div class="box p-20 d-flex align-center">
+
+                            <div class="fs-14">
+                                <span class="c-grey">Full Name</span>
+                                <span>{{ app.user.prenom }}-{{ app.user.nom }}</span>
+                            </div>
+
+                            <div class="fs-14">
+                                <span class="c-grey">Adresse:</span>
+                                <span>{{ app.user.adresse }}</span>
+                            </div>
+
+                        </div>
+                        <!-- End Information Row -->
+                        <!-- Start Information Row -->
+                        <div class="box p-20 d-flex align-center">
+
+                            <div class="fs-14">
+                                <span class="c-grey">Email:</span>
+                                <span>{{ app.user.email }}</span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-grey">Phone:</span>
+                                <span>{{ app.user.telephone }}</span>
+                            </div>
+                        </div>
+                        <div class="box p-20 d-flex align-center">
+
+                            <div class="fs-14">
+                                <span class="c-grey">Gender:</span>
+                                <span>{{ app.user.gender }}</span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-grey">Age:</span>
+                                <span>{{ app.user.age }}</span>
+                            </div>
+                        </div>
+                        <div class="box p-20 d-flex align-center">
+                            <a  type="button" class="btn" style="background-color: #00A9A4; padding: 8px;" href="{{ path('app_user_edit', {'id': app.user.id}) }}" >Edit</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Overview -->
+
+            </div>
+        </div>
+
+    </div>
+
+    </body>
+{% endblock %}

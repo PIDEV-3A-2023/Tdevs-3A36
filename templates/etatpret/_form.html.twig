@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+
+
+<div class="col-md-612">
+	<div class="card card-primary">
+
+		<div class="card-body" style="display: block;">
+			<div class="form-group">
+				<label for="inputName">Reponse</label>
+				{{ form_widget(form.remarque) }}
+			</div>
+
+			<div class="form-group">
+				<label for="inputStatus">Status</label>
+				{{ form_widget(form.etat) }}
+			</div>
+
+		</div>
+		<!-- /.card-body -->
+	</div>
+	<button class="btn btn-danger">{{ button_label|default('Save') }}</button>
+	<!-- /.card -->
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,50 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}Beneficiaire{% endblock %}
+
+{% block body %}
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+    <h1>Beneficiaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id Beneficiaire</th>
+                <td>{{ beneficiaire.idBenef }}</td>
+            </tr>
+            <tr>
+                <th>Rib Beneficiaire</th>
+                <td>{{ beneficiaire.ribBenef }}</td>
+            </tr>
+            <tr>
+                <th>Nom Beneficiaire</th>
+                <td>{{ beneficiaire.nomBenef }}</td>
+            </tr>
+            <tr>
+                <th>Prenom Beneficiaire</th>
+                <td>{{ beneficiaire.prenomBenef }}</td>
+            </tr>
+            <tr>
+                <th>Email Beneficiaire</th>
+                <td>{{ beneficiaire.emailBenef }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_beneficiaire_index') }}">Back to list</a>
+    <a class="btn btn-danger" href="{{ path('app_qrcode', {'id_benef': beneficiaire.idBenef}) }}">QR Code</a>
+
+
+    <div class="one-third mb-4 mb-md-0">
+                                        <div>
+                                        {% if qrCode %}
+                                            <img src="{{ qrCode }}" alt="qr-code">
+                                        {% endif %}
+                                        </div>
+                                 </div>
+{% endblock %}

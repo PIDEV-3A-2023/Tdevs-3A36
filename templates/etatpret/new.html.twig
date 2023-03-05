@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<title>New Etatpret</title>
+
+{% block body %}
+    <h1>Create new Etatpret</h1>
+
+    {{ include('etatpret/_form.html.twig') }}
+
+    <a href="{{ path('app_etatpret_index') }}">back to list</a>
+{% endblock %}

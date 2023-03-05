@@ -1,0 +1,37 @@
+<div class="col-lg-12 grid-margin stretch-card-dark">
+                    <div class="card-dark">
+                        <div class="card-body-dark">
+                            <div class="table-responsive-dark">
+                                <table class="table table-striped-dark ">
+                                    <thead>
+                                    <tr>
+                                       
+                                        <th>Rib_benef</th>
+                <th>Nom_benef</th>
+                <th>Prenom_benef</th>
+                <th>Email_benef</th>
+                <th>actions</th>
+                                      
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                 {% for beneficiaire in beneficiaire %}
+                                    <tr onclick="">
+                                      
+                                           
+                                       <td>{{ beneficiaire.ribBenef }}</td>
+                <td>{{ beneficiaire.nomBenef }}</td>
+                <td>{{ beneficiaire.prenomBenef }}</td>
+                <td>{{ beneficiaire.emailBenef }}</td>
+                <td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>

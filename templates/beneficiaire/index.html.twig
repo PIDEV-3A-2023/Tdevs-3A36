@@ -1,0 +1,68 @@
+{% extends './base_front.html.twig' %}
+
+{% block title %}Liste des beneficiaires{% endblock %}
+
+{% block body %}
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+    <h1> </h1>
+    <ul class="navbar-nav w-100">
+               
+                    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search" method="post" action="{{ path('search') }}">
+                        <input type="text" name = "search"  class="form-control" placeholder="Search rib">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><input class="btn btn-success" type="submit"  value="search"></li>
+                        </ol>
+                    </form>
+                </li>
+            </ul>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Rib_benef</th>
+                <th>Nom_benef</th>
+                <th>Prenom_benef</th>
+                <th>Email_benef</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for beneficiaire in beneficiaires %}
+            <tr>
+                
+                <td>{{ beneficiaire.ribBenef }}</td>
+                <td>{{ beneficiaire.nomBenef }}</td>
+                <td>{{ beneficiaire.prenomBenef }}</td>
+                <td>{{ beneficiaire.emailBenef }}</td>
+                <td>
+                   <form method="post" action="{{ path('app_beneficiaire_delete', {'id_benef': beneficiaire.idBenef}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ beneficiaire.idBenef) }}">
+    <button class="btn btn-danger">Delete</button>
+</form>
+
+                    <a href="{{ path('app_beneficiaire_edit', {'id_benef': beneficiaire.idBenef}) }}">edit</a>   
+                    <a href="{{ path('app_beneficiaire_show', {'id_benef': beneficiaire.idBenef}) }}">show</a>
+
+                                 
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn style1" href="{{ path('app_beneficiaire_new') }}">Create new</a>
+    <br>
+    <br>
+        {% endblock %}
+

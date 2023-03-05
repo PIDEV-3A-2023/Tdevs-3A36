@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<title>Etatpret</title>
+
+{% block body %}
+    <h1>Etatpret</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etatpret.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ etatpret.etat }}</td>
+            </tr>
+            <tr>
+                <th>Admin</th>
+                <td>{{ etatpret.admin }}</td>
+            </tr>
+            <tr>
+                <th>Remarque</th>
+                <td>{{ etatpret.remarque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+ 
+
+    <a href="{{ path('app_etatpret_edit', {'id': etatpret.id}) }}">edit</a>
+
+
+
+{% endblock %}
